@@ -14,3 +14,8 @@
 .list-width{
   width: 20%;
 }
+
+.button {
+  border: none;
+  background-color: #FFFFFF;
+}

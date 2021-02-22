@@ -3,67 +3,89 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <link href="css/styles.css" rel="stylesheet" >
-    <title>Formularverarbeitung</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/model/user.js"></script>
+    <script src="js/model/employee.js"></script>
+    <script src="js/services/employeeService.js"></script>
+    <title></title>
   </head>
-  <body>
+  <body onload="EmployeeService.init()">
     <div class="container">
-  <!-- Content here -->
-  <div class="row">
-    <h2> <span class="badge bg-success">Mitarbeiterverwaltung</span></h2>
-  </div>
-<div class="border border-padding">
-  <div class="row col-align-bottom">
-  <div class="col">
-    <label  class="form-label">Name:</label>
-    <input type="text" class="form-control" name="" value="" placeholder="Bitte einen Namen eingeben">
-  </div>
-  <div class="col">
-    <label  class="form-label">Email:</label>
-  <input type="email" class="form-control"  placeholder="name@example.com" name="" value="">
-  </div>
-  <div class="col">
-    <label  class="form-label">Rolle:</label>
-    <select class="form-select">
-  <option selected>Bitte wählen sie aus</option>
-  <option value="Administrator">Administrator</option>
-  <option value="Benutzer">Benutzer</option>
-  <option value="Gast">Gast</option>
-</select>
-  </div>
 
-  </div>
-<div class="row button-margin-top">
-  <div class="col">
-    <div class="d-grid gap2">
+        <div class="row">
+          <h2><span class="badge bg-success">Mitarbeiterverwaltung</span></h2>
+        </div>
+        <div class="border border-padding">
+          <div class="row col-align-bottom">
+            <div class="col">
+              <label class="form-label">Name:</label>
+              <input id="id_name"
+                class="form-control"
+                placeholder="Bitte einen Namen eingeben!"
+                type="text" name="name" value=""
+                onchange="EmployeeService.valueChange(event)">
+            </div>
+            <div class="col">
+              <label class="form-label">Email:</label>
+              <input id="id_e-mail"
+              class="form-control"
+              placeholder="name@example.com"
+              type="email" name="e-mail",
+              value=""
+              onchange="EmployeeService.valueChange(event)">
+            </div>
+            <div class="col">
+              <label class="form-label">Rolle:</label>
+              <select id="id_role"
+              class="form-select"
+              name="role"
+              onchange="EmployeeService.roleChange(event)">
+                <option selected>Bitte wählen aus...</option>
+                <option value="Admin">Administrator</option>
+                <option value="Benutzer">Benutzer</option>
+                <option value="Gast">Gast</option>
+              </select>
+            </div>
+          </div>
 
-    <button type="button" class="btn btn-success">Hinzufügen</button>
-  </div>
-  </div>
+        <div class="row button-margin-top" >
+          <div class="col">
+           <div class="d-grid gap-2">
+             <button id="id_button" type="button" class="btn btn-success" name="add" onclick="EmployeeService.addEmployee(event)">Hinzufügen</button>
+           </div>
+          </div>
+        </div>
+      </div>
+  <br/>
+  <div id="table" class="border border-padding">
+    <div class="row">
+      <div class="col">ID</div>
+      <div class="col">Name</div>
+      <div class="col">E-Mail</div>
+      <div class="col">Rolle</div>
+      <div class="col">Aktion</div>
+    </div>
+    <div id="userContent">
+
     </div>
   </div>
-  <div class="border border-padding list-margin-top">
-
-    <ul class="list-group list-group-horizontal">
-  <li class="list-group-item flex-fill list-width">ID</li>
-  <li class="list-group-item flex-fill list-width">Name</li>
-  <li class="list-group-item flex-fill list-width">Email</li>
-  <li class="list-group-item flex-fill list-width">Rolle</li>
-  <li class="list-group-item flex-fill list-width">Action</li>
-</ul>
-<ul class="list-group list-group-horizontal-sm">
-  <li class="list-group-item flex-fill list-width">1</li>
-  <li class="list-group-item flex-fill list-width">Herbert</li>
-  <li class="list-group-item flex-fill list-width">herbert@irgendwas.de</li>
-  <li class="list-group-item flex-fill list-width">Gast</li>
-  <li class="list-group-item flex-fill list-width"> <button type="button" class="btn btn-success btn-sm">Löschen</button></li>
-</ul>
-</div>
-
-</div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
   </body>
 </html>
